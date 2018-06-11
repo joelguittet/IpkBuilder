@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.github.myfreescalewebpage.ipkbuilder" default="CreateJAR">
+	<tstamp>
+		<format property="TSTAMP" pattern="HH:mm:ss"/>
+	</tstamp>
+	<path id="build.classpath">
+		<fileset dir="lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<pathconvert property="manifest.classpath" pathsep=" ">
+		<path refid="build.classpath"/>
+  		<mapper>
+    		<chainedmapper>
+       			<flattenmapper/>
+       			<globmapper from="*.jar" to="/usr/share/java/*.jar"/>
+    		</chainedmapper>
+  		</mapper>
+	</pathconvert>
+	<target name="CreateJAR">
+		<delete file="jar/MANIFEST.MF"/>
+		<delete file="jar/com.github.myfreescalewebpage.ipkbuilder.jar"/>
+		<manifest file="jar/MANIFEST.MF">
+		    <attribute name="Main-Class" value="com.github.myfreescalewebpage.Main"/>
+		    <attribute name="Implementation-Version" value="1.0.0"/>
+			<attribute name="Built-Date" value="${TODAY} ${TSTAMP}"/>
+			<attribute name="Class-Path" value="commons-cli-1.4.jar commons-compress-1.17.jar commons-io-2.6.jar"/>
+		</manifest>
+    	<jar destfile="jar/com.github.myfreescalewebpage.ipkbuilder.jar" basedir="bin" includes="**/*.class" manifest="jar/MANIFEST.MF"/>
+    </target>
+</project>
