@@ -23,10 +23,10 @@ Usage
 	-i,--input <input>                 Input path
 	-o,--output <output>               Output Path
 
-Unix, use writing:
+On Unix, use writing:
 
-	-jar com.github.myfreescalewebpage.ipkbuilder.jar -n <name> -v <version> -a <arch> -i "/root/path/of/data/to/be/packaged" -o "/destination/path/of/ipk"
+	java -jar com.github.myfreescalewebpage.ipkbuilder.jar -n <name> -v <version> -a <arch> -i "/root/path/of/data/to/be/packaged" -o "/destination/path/of/ipk"
 
-Windows, use writing:
+On Windows, use writing:
 
-	-jar com.github.myfreescalewebpage.ipkbuilder.jar -n <name> -v <version> -a <arch> -i "C:\\root\\path\\of\\data\\to\\be\\packaged" -o "C:\\destination\\path\\of\\ipk"
+	java.exe -jar com.github.myfreescalewebpage.ipkbuilder.jar -n <name> -v <version> -a <arch> -i "C:\\root\\path\\of\\data\\to\\be\\packaged" -o "C:\\destination\\path\\of\\ipk"
